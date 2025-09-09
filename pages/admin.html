@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Administrador</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/admin.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <h1 class="title m-0">Pedidos</h1>
+      </div>
+      <div class="topbar__right">
+        <button
+          onclick="window.location.href='../index.html'"
+          class="btn btn--ghost"
+          >Cerrar sesión</button
+        >
+      </div>
+    </header>
+
+    <section class="cards-grid">
+      <div class="card card--click" data-filter="todos">
+        <h2>📦 Pedidos</h2>
+        <p>Todos los pedidos</p>
+      </div>
+      <div class="card card--click" data-filter="en_proceso">
+        <h2>🚚 Envío</h2>
+        <p>Pedidos en proceso / envío</p>
+      </div>
+      <div class="card card--click" data-filter="entregado">
+        <h2>✅ Finalizados</h2>
+        <p>Pedidos entregados</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="card">
+        <div class="tabs" role="tablist">
+          <button
+            class="tab is-active"
+            data-filter="todos"
+            role="tab"
+            aria-selected="true"
+            >Todos</button
+          >
+          <button class="tab" data-filter="pendiente" role="tab"
+            >Pendientes</button
+          >
+          <button class="tab" data-filter="en_proceso" role="tab"
+            >En proceso</button
+          >
+          <button class="tab" data-filter="entregado" role="tab"
+            >Entregados</button
+          >
+        </div>
+        <div class="table-responsive">
+          <table class="table" id="ordersTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Se llena con JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <details class="mt-16">
+          <summary>Agregar pedido rápido</summary>
+          <form id="quickAddForm" class="form form--inline">
+            <input type="text" name="cliente" placeholder="Cliente" required />
+            <input
+              type="text"
+              name="producto"
+              placeholder="Producto"
+              required
+            />
+            <select name="estado" required>
+              <option value="pendiente">Pendiente</option>
+              <option value="en_proceso">En proceso</option>
+              <option value="entregado">Entregado</option>
+            </select>
+            <button class="btn" type="submit">Agregar</button>
+          </form>
+        </details>
+      </section>
+    </main>
+    <!-- Modal de edición -->
+    <div id="editModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span id="closeEditModal" class="modal-close">&times;</span>
+        <h2>Editar Pedido</h2>
+        <form id="editForm" class="form">
+          <input type="text" name="cliente" placeholder="Cliente" required />
+          <input type="text" name="producto" placeholder="Producto" required />
+          <select name="estado" required>
+            <option value="pendiente">Pendiente</option>
+            <option value="en_proceso">En proceso</option>
+            <option value="entregado">Entregado</option>
+          </select>
+          <button type="submit" class="btn">Guardar Cambios</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+  </body>
+</html>

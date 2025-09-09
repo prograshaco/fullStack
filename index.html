@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burguer Menu</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Burguer Menu</h1>
+        <h3>Hamburguesas Gourmet</h3>
+      </div>
+      <div class="header-buttons">
+        <button id="cart-btn">🛒 Carrito <span id="cart-count">0</span></button>
+        <button
+          id="login-btn"
+          onclick="window.location.href='../pages/login.html'"
+          >🔑 Iniciar sesión</button
+        >
+      </div>
+    </header>
+
+    <nav class="categories">
+      <button class="cat-btn active" data-cat="todos">👀 Todo</button>
+      <button class="cat-btn" data-cat="hamburguesas">🍔 Hamburguesas</button>
+      <button class="cat-btn" data-cat="papas">🍟 Papas Fritas</button>
+      <button class="cat-btn" data-cat="bebidas">🥤 Bebidas</button>
+      <button class="cat-btn" data-cat="salsas">🥫 Salsas</button>
+      <button class="cat-btn" data-cat="agregados">🍗 Agregados</button>
+    </nav>
+
+    <main>
+      <section style="margin: 0 25%;"></section>
+        <div id="products" class="products"> </div>
+      </section>
+    </main>
+
+    <div id="product-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-product">&times;</span>
+        <h2 id="modal-name">Producto</h2>
+        <p id="modal-desc">Descripción del producto.</p>
+        <p id="modal-price">Precio: $0.00</p>
+        <div class="qty-container">
+          <button class="qty-btn" id="modal-dec">−</button>
+          <input type="number" id="modal-qty" value="1" min="1" />
+          <button class="qty-btn" id="modal-inc">+</button>
+        </div>
+        <button id="modal-add">Añadir al carrito</button>
+      </div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-cart">&times;</span>
+        <h2>🛒 Tu Carrito</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="clear-cart">Vaciar Carrito</button>
+        <button id="checkout">Pagar</button>
+      </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

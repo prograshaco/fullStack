@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/admin.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card card--center">
+        <h1 class="title">Iniciar sesión</h1>
+        <p class="subtitle">Usa la contraseña asignada para ingresar</p>
+
+        <form id="loginForm" class="form" autocomplete="off">
+          <div class="form__group">
+            <label for="username">Usuario</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Tu usuario"
+              required
+            />
+          </div>
+
+          <div class="form__group">
+            <label for="password">Contraseña</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="********"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn">Entrar</button>
+          <p id="loginError" class="form__error" aria-live="polite" hidden
+            >Usuario o contraseña incorrectos.</p
+          >
+        </form>
+      </section>
+    </main>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
